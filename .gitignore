@@ -1,0 +1,8 @@
+bower_components
+node_modules
+.idea
+*.iml
+.classpath
+.project
+.settings
+uiDesigner.xml

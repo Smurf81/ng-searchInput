@@ -1,0 +1,60 @@
+.controls .form-control {
+    display: inline;
+}
+
+.controls.search .delete-button {
+    z-index: 1000;
+}
+
+.controls.search .search-button {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.controls.search input[type="text"] {
+    margin-top: 20px;
+}
+
+.controls button {
+    margin-top: 20px;
+}
+
+.search-button > button {
+    margin-top: 16px;
+    z-index: 1000;
+}
+
+.center-btn .btn, .btn-primary {
+    background-color: #52AD34;
+    border-color: #52AD34;
+}
+
+.controls.search .more-results {
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.controls.search span.no-search-result {
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.controls ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.controls.search li{
+    z-index: 1000;
+    line-height: 40px;
+}
+
+.search-warning {
+    position: fixed;
+    top: 52px;
+    width: 96%;
+}
+
+.controls.search li:hover,.search-focus{
+    background-color: rgba(182, 182, 182, 0.47);
+}
