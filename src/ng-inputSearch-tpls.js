@@ -28,10 +28,9 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
             },
             template:
                 '<form class="form-inline">' +
-                    '<div ng-init="warning=false" ng-show="warning && minCharSearch" class="alert alert-warning search-warning text-center"> Thank you to enter at least {{minCharSearch}} characters for your search.</div>' +
                     '<div class="controls search">'+
-                        '<div class="input-group col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-offset-4 col-lg-4 pull-left">' +
-                            '<input type="text" size="50" class="form-control" ng-model="searchQuery" placeholder="Rechercher un site">'+
+                        '<div class="input-group col-xs-8 col-xs-offset-1 col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-offset-4 col-lg-4 pull-left">' +
+                            '<input type="text" size="50" class="form-control" ng-model="searchQuery" placeholder="Search">'+
                             '<div class="input-group-btn delete-button">'+
                                 '<button type="button" class="btn btn-default" ng-click="deleteSearch($event)">'+
                                     '<div>x</div>'+
@@ -42,12 +41,12 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
                             '<button type="submit" class="btn btn-primary btn-lg glyphicon glyphicon-search"></button>'+
                         '</span>'+
                         '<div class="dropdown" ng-class="{open:results !==undefined}">' +
-                            '<ul class="col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-offset-4 col-lg-4 dropdown-menu " role="menu">' +
+                            '<ul class="col-xs-8 col-xs-offset-1 col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-offset-4 col-lg-4 dropdown-menu " role="menu">' +
                                 '<li ng-show="results.length > 0" ng-repeat="element in results | limitTo : maxResults ">' +
                                     '<result-element element="element" ng-click="actionOnElement({id:element.id})"></result-element>'+
                                 '</li>' +
                                 '<li ng-show="results.length > maxResults" class="text-center">' +
-                                    '<a ng-click="searchWithRedirect()" class="more-results">More results</a>' +
+                                    '<a ng-click="searchButton()" class="more-results">More results</a>' +
                                 '</li>' +
                                 '<li ng-show="results.length == 0" class="text-center">' +
                                     '<span class="no-search-result">No results</span>'+
@@ -130,7 +129,7 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
                     if(event.keyCode === 40){
                         if(index == 0){
                             selectedLi = retrieveElementLi(elem,index++);
-                        } else if(index <= scope.maxResults) {
+                        } else if(index <= scope.maxResults && index <scope.results.length) {
                             selectedLi = retrieveElementLi(elem,index);
                             predecessorLi = retrieveElementLi(elem,index-1);
                             index++;
