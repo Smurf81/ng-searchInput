@@ -44,28 +44,28 @@ If, on the other hand default template are not what you need you could take ng-i
 ## Example
 
 ```html
-    <search-bar-large
+    <search-bar
         max-results="5"
-        search-button="searchFunction()"
-        search-partials="searchMerchant()"
-        action-on-element="goToMerchantDetail(id)"
+        search-button="searchButton()"
+        search-partials="searchPartials()"
+        action-on-element="actionOnElement(id)"
         search-query="searchQuery"
         results="results"
         min-char-search="3"
         >
-        </search-bar-large>
+        </search-bar>
 ```
 <br/>
 
 ```javascript
     controller:function($scope){
-        $scope.searchFunction = function(){
+        $scope.searchButton = function(){
             ...
         }    
-        $scope.searchMerchant = function(){
+        $scope.searchPartials = function(){
             ...
         }
-        $scope.goToMerchantDetails = function(id){
+        $scope.actionOnElement = function(id){
             ...
         }
     }
