@@ -90,16 +90,14 @@ If, on the other hand default template are not what you need you could take ng-i
 
 You might want to customize default templates to match your desired look & feel, add new functionality etc.
 
-The easiest way to override an individual template is to use the \'<script>\' directive:
+The easiest way to override an individual template is to use the directive:
 
 ```html
-
     <script id="template/searchinput/element.html" type="text/ng-template">
         <div>
             {{element.name}}
         </div>
     </script>
-    
 ```
 <br/>
 
