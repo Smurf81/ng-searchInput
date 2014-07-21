@@ -155,7 +155,11 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
                             event.preventDefault();
                             var selectedResult = scope.results[index-1];
                             scope.$apply(function() {
-                                scope.actionOnElement({id:selectedResult.id});
+                                if(selectedResult.id){
+                                    scope.actionOnElement({id:selectedResult.id});
+                                } else {
+                                    scope.actionOnElement({id:index-1});
+                                }
                             });
                         } else {
                             scope.$apply(function() {
