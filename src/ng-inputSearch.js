@@ -18,10 +18,8 @@ angular.module('ng.inputSearch',[])
         return {
             restrict:'E',
             scope:{
-                maxResults : '=',
                 results:'=',
                 searchQuery:'=',
-                minCharSearch:'=',
                 searchButton:'&',
                 searchPartials:'&',
                 actionOnElement:'&'
@@ -58,6 +56,9 @@ angular.module('ng.inputSearch',[])
                 '</form>',
             replace:true,
             link:function(scope,elem,attrs){
+
+                scope.maxResults = angular.isDefined(attrs.maxResults) ? scope.$parent.$eval(attrs.maxResults) : 5;
+                scope.minCharSearch = angular.isDefined(attrs.minCharSearch) ? scope.$parent.$eval(attrs.minCharSearch) : 3;
 
                 /**
                  * Watch search input and make a search action when 3 chars are present
