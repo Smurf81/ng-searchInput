@@ -18,16 +18,15 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
         return {
             restrict:'E',
             scope:{
-                maxResults : '=',
                 results:'=',
                 searchQuery:'=',
-                minCharSearch:'=',
                 searchButton:'&',
                 searchPartials:'&',
                 actionOnElement:'&'
             },
             template:
                 '<form class="form-inline">' +
+                '<div ng-init="warning=false" ng-show="warning && minCharSearch" class="alert alert-warning search-warning text-center"> Thank you to enter at least {{minCharSearch}} characters for your search.</div>' +
                     '<div class="controls search">'+
                         '<div class="input-group col-xs-8 col-xs-offset-1 col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-offset-4 col-lg-4 pull-left">' +
                             '<input type="text" size="50" class="form-control" ng-model="searchQuery" placeholder="Search">'+
@@ -46,7 +45,7 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
                                     '<result-element element="element" ng-click="actionOnElement({id:element.id})"></result-element>'+
                                 '</li>' +
                                 '<li ng-show="results.length > maxResults" class="text-center">' +
-                                    '<a ng-click="searchButton()" class="more-results">More results</a>' +
+                                '<a ng-click="searchWithRedirect()" class="more-results">More results</a>' +
                                 '</li>' +
                                 '<li ng-show="results.length == 0" class="text-center">' +
                                     '<span class="no-search-result">No results</span>'+
@@ -57,6 +56,9 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
                 '</form>',
             replace:true,
             link:function(scope,elem,attrs){
+
+                scope.maxResults = angular.isDefined(attrs.maxResults) ? scope.$parent.$eval(attrs.maxResults) : 5;
+                scope.minCharSearch = angular.isDefined(attrs.minCharSearch) ? scope.$parent.$eval(attrs.minCharSearch) : 3;
 
                 /**
                  * Watch search input and make a search action when 3 chars are present
