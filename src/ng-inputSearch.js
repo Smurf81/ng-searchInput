@@ -29,7 +29,7 @@ angular.module('ng.inputSearch',[])
                 '<div ng-init="warning=false" ng-show="warning && minCharSearch" class="alert alert-warning search-warning text-center"> Thank you to enter at least {{minCharSearch}} characters for your search.</div>' +
                 '<div class="controls search">'+
                 '<div class="input-group col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-offset-4 col-lg-4 pull-left">' +
-                '<input type="text" size="50" class="form-control" ng-model="searchQuery" placeholder="Rechercher un site">'+
+                '<input type="text" size="50" class="form-control" ng-model="searchQuery" placeholder="Search">'+
                 '<div class="input-group-btn delete-button">'+
                 '<button type="button" class="btn btn-default" ng-click="deleteSearch($event)">'+
                 '<div>x</div>'+
@@ -131,7 +131,7 @@ angular.module('ng.inputSearch',[])
                     if(event.keyCode === 40){
                         if(index == 0){
                             selectedLi = retrieveElementLi(elem,index++);
-                        } else if(index <= scope.maxResults) {
+                        } else if(index <= scope.maxResults && index <scope.results.length) {
                             selectedLi = retrieveElementLi(elem,index);
                             predecessorLi = retrieveElementLi(elem,index-1);
                             index++;
