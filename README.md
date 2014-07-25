@@ -77,13 +77,13 @@ If, on the other hand default template are not what you need you could take ng-i
 
 ## Attribute :
 
-* max-results : "5", // Number of results appears for partials results (required)
+* max-results : "5" (default), // Number of results appears for partials results
 * search-button : "", // Function executed when the users click on the search button (required)
 * search-partials : "", // Watch search input and execute "search-partials" function when "minCharSearch" chars are present, wait 300ms after each change to execute action (required)
-* action-on-element : "", // Action executed when users select it ( by click or with enter key ) -> NEED ID on element
+* action-on-element : "", // Action executed when users select it ( by click or with enter key ) -> Use ID on element but not necessary
 * search-query : "", // the search element used by previous function (required )
 * results : "", // results of the search (required)
-* minCharSearch : "3"
+* min-char-search : "3" (default), // minimum carac before search-partials is executed
 
 
 ## Customize templates (only with tpls)
