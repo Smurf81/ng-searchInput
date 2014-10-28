@@ -42,7 +42,7 @@ angular.module('ng.inputSearch',[])
                 '<div class="dropdown" ng-class="{open:results !==undefined}">' +
                 '<ul class="col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-offset-4 col-lg-4 dropdown-menu " role="menu">' +
                 '<li ng-show="results.length > 0" ng-repeat="element in results | limitTo : maxResults ">' +
-                '<result-element element="element" ng-click="actionOnElement({id:element.id})"></result-element>'+
+                '<result-element element="element" ng-click="actionOnElement({id:$index})"></result-element>'+
                 '</li>' +
                 '<li ng-show="results.length > maxResults" class="text-center">' +
                 '<a ng-click="searchWithRedirect()" class="more-results">More results</a>' +
