@@ -1,5 +1,5 @@
 angular.module('ng.inputSearch',["template/searchinput/element.html"])
-    .directive('searchBar',['$timeout',function($timeout){
+    .directive('searchBar',[function(){
 
         var createElement = function(clazz) {
             var el = angular.element("<div>");
@@ -29,7 +29,7 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
                 '<div ng-init="warning=false" ng-show="warning && minCharSearch" class="alert alert-warning search-warning text-center"> Thank you to enter at least {{minCharSearch}} characters for your search.</div>' +
                     '<div class="controls search">'+
                         '<div class="input-group col-xs-8 col-xs-offset-1 col-sm-5 col-sm-offset-3 col-md-5 col-md-offset-3 col-lg-offset-4 col-lg-4 pull-left">' +
-                            '<input type="text" size="50" class="form-control" ng-model="searchQuery" placeholder="Search">'+
+                            '<input type="text" size="50" class="form-control" ng-model="searchQuery" ng-model-options="{ debounce : 300}" placeholder="Search">'+
                             '<div class="input-group-btn delete-button">'+
                                 '<button type="button" class="btn btn-default" ng-click="deleteSearch($event)">'+
                                     '<div>x</div>'+
@@ -67,11 +67,7 @@ angular.module('ng.inputSearch',["template/searchinput/element.html"])
                 var promise;
                 scope.$watch('searchQuery',function(newVal){
                     if (newVal && newVal.length >= scope.minCharSearch) {
-                        $timeout.cancel(promise);
-                        promise = $timeout(function(){
-                            scope.searchPartials();
-                        },300);
-
+                        scope.searchPartials();
                     } else {
                         scope.results = undefined;
                         index=0;

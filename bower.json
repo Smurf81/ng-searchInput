@@ -1,13 +1,13 @@
 {
     "name": "ng-inputSearch",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "authors": ["Vincent G."],
     "description": "Advanced input search (partials search, key binding)",
     "dependencies": {
-        "angular": "1.3.*-build"
+        "angular": "1.3.0"
     },
     "devDependencies" : {
-        "angular-mocks": "1.3.*-build"
+        "angular-mocks": "1.3.0"
     },
 
     "ignore": [
