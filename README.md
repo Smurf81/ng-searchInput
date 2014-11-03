@@ -1,6 +1,6 @@
 # ng-inputSearch
 
-*Advanced search component*
+*Angular advanced search component* ( Use Angular 1.3 )
 
 # Example
 
