@@ -20,6 +20,11 @@
 <br/>
 
 ## Installation
+
+Easy Way :
+
+`$ bower install ng-InputSearch`
+
 Installation is easy as angular-ui-bootstrap has minimal dependencies - only the AngularJS and Bootstrap's CSS are required.
 Two versions are available : 
 * ng-inputSearch-tpls.min.js
